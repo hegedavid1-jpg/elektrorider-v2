@@ -1379,7 +1379,7 @@ textarea {
 
 .product-description-panel {
   display: grid;
-  grid-template-columns: minmax(260px, 0.48fr) minmax(0, 1fr);
+  grid-template-columns: minmax(230px, 0.34fr) minmax(0, 1fr);
   gap: 34px;
   align-items: start;
   padding: 30px;
@@ -1393,9 +1393,82 @@ textarea {
   font-size: clamp(1.55rem, 2.4vw, 2.55rem);
 }
 
-.product-description-panel > p {
+.product-description-copy {
   color: var(--er-dark);
   font-size: 1.05rem;
+}
+
+.product-description-copy p {
+  margin: 0 0 18px;
+}
+
+.product-description-copy .lead {
+  color: var(--er-dark);
+  font-size: 1.18rem;
+  line-height: 1.65;
+}
+
+.product-description-copy h3 {
+  margin: 34px 0 12px;
+  color: var(--er-dark);
+  font-size: 1.32rem;
+  line-height: 1.2;
+}
+
+.product-description-copy h4 {
+  margin: 0 0 10px;
+  color: var(--er-dark);
+  font-size: 0.98rem;
+}
+
+.product-description-copy ul {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 20px;
+  padding-left: 20px;
+}
+
+.product-description-copy li {
+  color: var(--er-muted);
+  line-height: 1.55;
+}
+
+.product-description-copy li strong {
+  color: var(--er-dark);
+}
+
+.spec-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 22px 0 30px;
+}
+
+.spec-list span,
+.product-spec-groups > div {
+  padding: 16px;
+  background: var(--er-soft);
+  border: 1px solid var(--er-line);
+  border-radius: 8px;
+}
+
+.spec-list strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--er-dark);
+  font-family: "DM Mono", Consolas, monospace;
+  font-size: 1.1rem;
+}
+
+.product-spec-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0 28px;
+}
+
+.product-spec-groups ul {
+  margin-bottom: 0;
 }
 
 .finance-calculator {
@@ -1706,7 +1779,9 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .product-description-panel {
+  .product-description-panel,
+  .spec-list,
+  .product-spec-groups {
     grid-template-columns: 1fr;
   }
 }
@@ -1795,5 +1870,9 @@ textarea {
   .instacash-box {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .product-description-panel {
+    padding: 22px;
   }
 }
