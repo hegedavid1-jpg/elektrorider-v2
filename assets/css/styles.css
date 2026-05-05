@@ -149,6 +149,11 @@ iconify-icon {
   backdrop-filter: blur(14px);
 }
 
+.site-header .container {
+  width: calc(100% - 72px);
+  max-width: none;
+}
+
 .header-inner {
   min-height: 66px;
   display: grid;
@@ -511,12 +516,12 @@ iconify-icon {
 }
 
 .section-intro {
-  max-width: 680px;
+  max-width: 960px;
   margin-bottom: 34px;
 }
 
 .section-intro.center {
-  max-width: 760px;
+  max-width: 1040px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -559,24 +564,42 @@ iconify-icon {
 
 .brand-strip {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 20px;
   align-items: stretch;
 }
 
 .brand-mark {
-  min-height: 116px;
+  min-height: 190px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 18px 14px;
+  gap: 12px;
+  padding: 24px 18px;
   color: rgba(49, 47, 76, 0.58);
-  border: 1px solid transparent;
+  background: var(--er-white);
+  border: 1px solid var(--er-line);
   border-radius: 8px;
   text-align: center;
-  transition: color 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+  box-shadow: 0 10px 26px rgba(23, 22, 34, 0.05);
+  transition: color 0.16s ease, border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+}
+
+.brand-logo-mark {
+  min-width: 96px;
+  min-height: 38px;
+  display: inline-grid;
+  place-items: center;
+  padding: 7px 12px;
+  color: var(--er-dark);
+  background: var(--er-soft);
+  border: 1px solid var(--er-line);
+  border-radius: 8px;
+  font-family: "DM Mono", Consolas, monospace;
+  font-size: 0.76rem;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .brand-mark strong {
@@ -595,7 +618,41 @@ iconify-icon {
 .brand-mark:hover {
   color: var(--er-muted);
   background: var(--er-panel);
-  border-color: var(--er-line);
+  border-color: rgba(136, 243, 29, 0.8);
+  transform: translateY(-2px);
+}
+
+.brand-story {
+  margin-top: 22px;
+}
+
+.brand-copy-panel {
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  padding: 30px;
+  background: var(--er-soft);
+  border: 1px solid var(--er-line);
+  border-radius: 8px;
+}
+
+.brand-copy-panel h2 {
+  font-size: clamp(1.7rem, 2.4vw, 2.6rem);
+}
+
+.brand-picture-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.brand-picture-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--er-panel);
+  border: 1px solid var(--er-line);
+  border-radius: 8px;
 }
 
 .product-grid,
@@ -1251,6 +1308,37 @@ textarea {
   font-weight: 800;
 }
 
+.instacash-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: -4px 0 20px;
+  padding: 16px;
+  background: #f4ffe8;
+  border: 1px solid rgba(136, 243, 29, 0.7);
+  border-radius: 8px;
+}
+
+.instacash-box div {
+  display: grid;
+  gap: 3px;
+}
+
+.instacash-box span {
+  color: #4f8f12;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.instacash-box strong {
+  color: var(--er-dark);
+  font-family: "DM Mono", Consolas, monospace;
+  font-weight: 500;
+}
+
 .buy-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1289,6 +1377,27 @@ textarea {
   text-transform: uppercase;
 }
 
+.product-description-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.48fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+  padding: 30px;
+  background: var(--er-white);
+  border: 1px solid var(--er-line);
+  border-radius: 8px;
+}
+
+.product-description-panel h2 {
+  margin-top: 8px;
+  font-size: clamp(1.55rem, 2.4vw, 2.55rem);
+}
+
+.product-description-panel > p {
+  color: var(--er-dark);
+  font-size: 1.05rem;
+}
+
 .finance-calculator {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -1311,6 +1420,20 @@ textarea {
 
 .finance-result strong {
   font-size: 1.55rem;
+}
+
+.finance-step-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.finance-step-number {
+  display: block;
+  color: var(--er-green);
+  font-family: "DM Mono", Consolas, monospace;
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 500;
+  line-height: 0.95;
 }
 
 .split-grid {
@@ -1557,7 +1680,8 @@ textarea {
   .product-grid.four,
   .article-grid,
   .detail-grid,
-  .doc-grid {
+  .doc-grid,
+  .brand-picture-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1579,6 +1703,10 @@ textarea {
   }
 
   .finance-calculator {
+    grid-template-columns: 1fr;
+  }
+
+  .product-description-panel {
     grid-template-columns: 1fr;
   }
 }
@@ -1632,6 +1760,7 @@ textarea {
   .article-grid,
   .detail-grid,
   .doc-grid,
+  .brand-picture-grid,
   .product-spec-strip,
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1661,5 +1790,10 @@ textarea {
 
   .footer-newsletter {
     grid-template-columns: 1fr;
+  }
+
+  .instacash-box {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
